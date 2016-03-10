@@ -6,6 +6,7 @@
 
 int main()
 {
+	cout << ""Test pull" << endl;
     cout << "Enter main function" << endl;
     try
     {
