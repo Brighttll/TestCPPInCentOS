@@ -6,6 +6,7 @@
 
 int main()
 {
+    cout << "Test push into git" << endl;
     cout << "Enter main function" << endl;
     try
     {
