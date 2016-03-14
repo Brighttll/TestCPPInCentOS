@@ -32,7 +32,6 @@ int server_sock::accept_connection()
     int client = -1;
     sockaddr_in client_addr;
     socklen_t length = sizeof(client_addr);
-    memset(&client_addr, 0, sizeof(sockaddr_in));
     if( client = accept(this->m_socket, (sockaddr*)(&client_addr), &length) < -1)
     {
 	close( this->m_socket );
