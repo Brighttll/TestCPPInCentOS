@@ -1,5 +1,5 @@
 #pragma once
-#include "header/server_sock.h"
+#include "header/server.h"
 #include "Globals.h"
 class test_socket
 {
