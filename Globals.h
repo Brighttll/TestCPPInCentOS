@@ -7,6 +7,7 @@
 #include <exception>
 #include <memory.h>
 #include <memory>
+#include <pthread.h>
 
 #include "base_operation.h"
 

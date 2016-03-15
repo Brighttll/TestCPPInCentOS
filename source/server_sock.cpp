@@ -7,14 +7,14 @@ int server_sock::initialize ()
     {
 	throw exception_ex(string("Create socket failed"), error_code::SOCKET_CREATED_ERROR, __FILE__, __func__, __LINE__);
     }
-    sockaddr_in local_server;
-    memset(&local_server, 0, sizeof(local_server));
-    local_server.sin_family = af;
-    local_server.sin_addr.s_addr = htonl(INADDR_ANY);
-    local_server.sin_port = htons(port);
+    sockaddr_in server_addr;
+    memset(&server_addr, 0, sizeof(server_addr));
+    server_addr.sin_family = af;
+    server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    server_addr.sin_port = htons(port);
     //local_server.sin_port = 0;
 
-    if(bind(this->m_socket, (sockaddr*)&local_server, sizeof(sockaddr)) < 0 )
+    if(bind(this->m_socket, (sockaddr*)&server_addr, sizeof(server_addr)) < 0 )
     {
 	close (this->m_socket);
 	throw exception_ex(string("Bind server socket failed."), error_code::SOCKET_BINDED_ERROR, __FILE__, __func__, __LINE__);
@@ -29,6 +29,7 @@ int server_sock::initialize ()
 
 int server_sock::accept_connection()
 {
+    cout << "Begin accepting..." << endl;
     int client = -1;
     sockaddr_in client_addr;
     socklen_t length = sizeof(client_addr);
